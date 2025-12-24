@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$2 $1" | sha256sum --check
+[ "$(sha256sum "$1" | cut -c1-64)" = "$2" ] && echo "$1: OK" || echo "$1: FAILED"
